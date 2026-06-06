@@ -25,7 +25,7 @@ then
   git clone https://github.com/MD-Developer-yt/MD-Filter-Bot /MD-Filter-Bot
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
-  git clone $UPSTREAM_REPO /Tele-Filter-Bot
+  git clone $UPSTREAM_REPO /MD-Filter-Bot
 fi
 
 # ------------------------- #
