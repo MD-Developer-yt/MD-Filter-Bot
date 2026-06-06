@@ -1,0 +1,74 @@
+{
+    "name": "MD-Filter-Bot",
+    "description": "A simple MD Filter Bot created by @Mr_Mohammed_29.",
+    "stack": "container",
+    "keywords": [
+        "telegram",
+        "auto-filter",
+        "filter",
+        "best",
+        "indian",
+        "pyrogram",
+        "media",
+        "search",
+        "channel",
+        "index",
+        "inline"
+    ],
+    "website": "https://t.me/Anime_UpdatesAU",
+    "repository": "https://github.com/MD-Developer-yt/MD-Filter-Bot/",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your bot token.",
+            "required": true
+        },
+        "API_ID": {
+            "description": "Get this value from https://my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Get this value from https://my.telegram.org",
+            "required": true
+        },
+        "CHANNELS": {
+            "description": "Username or ID of channel or group. Separate multiple IDs by space.",
+            "required": false
+        },
+        "ADMINS": {
+            "description": "Username or ID of Admin. Separate multiple Admins by space.",
+            "required": true
+        },
+        "PICS": {
+            "description": "Add some telegraph link of pictures.",
+            "required": false
+        },
+        "LOG_CHANNEL": {
+            "description": "Bot Logs, give a channel id with -100xxxxxxx.",
+            "required": true
+        },
+        "DATABASE_URI": {
+            "description": "MongoDB URI. Get this value from https://www.mongodb.com.",
+            "required": true
+        },
+        "DATABASE_NAME": {
+            "description": "Name of the database in MongoDB",
+            "value": "AutoFilter",
+            "required": false
+        },
+        "COLLECTION_NAME": {
+            "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use a different collection name for each bot.",
+            "value": "AutoFilter",
+            "required": false
+        }
+    },
+    "addons": [],
+    "buildpacks": [{
+        "url": "heroku/python"
+    }],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "eco"
+        }
+    }
+}
