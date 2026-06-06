@@ -1,0 +1,34 @@
+# ------------------------- #
+# Don't Remove Credit 
+# Ask Doubt @AU_Bot_Discussion 
+# Owner @Mr_Mohammed_29 
+# ------------------------- #
+
+# ⚙️ Core Dependencies
+pyrofork
+tgcrypto
+pymongo[srv]==3.12.3
+motor==2.5.1
+marshmallow==3.14.1
+umongo==3.0.1
+requests
+beautifulsoup4
+shortzy
+pytz
+
+# 🌐 Flask App Server
+Flask==2.2.2
+gunicorn==20.1.0
+aiohttp==3.8.1
+aiofiles==22.1.0
+
+# 📦 Telegram & Media Handling
+telegraph==2.2.0
+Pillow==9.4.0
+qrcode
+
+# ------------------------- #
+# Don't Remove Credit 
+# Ask Doubt @AU_Bot_Discussion 
+# Owner @Mr_Mohammed_29 
+# ------------------------- #
