@@ -986,10 +986,10 @@ async def deletemultiplefiles(bot, message):
 async def shortlink(bot, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
+        return await message.reply(f"Yᴏᴜ ᴀʀᴇ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ. Tᴜʀɴ ᴏғғ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ")
     chat_type = message.chat.type
     if chat_type == enums.ChatType.PRIVATE:
-        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command only works on groups !\n\n<u>Follow These Steps to Connect Shortener:</u>\n\n1. Add Me in Your Group with Full Admin Rights\n\n2. After Adding in Grp, Set your Shortener\n\nSend this command in your group\n\n—> /set_shortner ""{your_shortener_website_name} {your_shortener_api}\n\n#Sample:-\n/set_shortner  urlshortx.com aacda989a636df49b60ebd363b56dd5e82095eec\n\nThat's it!!! Enjoy Earning Money 💲\n\n[[[ Trusted Earning Site - https://urlshortx.com/ref/Spidynaik ]]]\n\nIf you have any Doubts, Feel Free to Ask me - @Mr_SPIDYBot</b>")
+        return await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, Tʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴡᴏɴ'ᴛ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘs !\n\n<u>Fᴏʟʟᴏᴡ Tʜᴇsᴇ Sᴛᴇᴘs ᴛᴏ Cᴏɴɴᴇᴄᴛ Sʜᴏʀᴛᴇɴᴇʀ:</u>\n\n1.Aᴅᴅ Mᴇ ɪɴ Yᴏᴜʀ Gʀᴏᴜᴘ ᴡɪᴛʜ Fᴜʟʟ Aᴅᴍɪɴ Rɪɢʜᴛs\n\n2.Aғᴛᴇʀ Aᴅᴅɪɴɢ ɪɴ Gʀᴘ, Sᴇᴛ ʏᴏᴜʀ Sʜᴏʀᴛᴇɴᴇʀ\n\nSᴇɴᴅ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ\n\n—> /set_shortner ""{your_shortener_website_name} {your_shortener_api}\n\n#Sample:-\n/set_shortner  urlshortx.com aacda989a636df49b60ebd363b56dd5e82095eec\n\nTʜᴀᴛ's ɪᴛ!!! Eɴɪᴏʏ Eᴀʀɴɪɴɢ Mᴏɴᴇʏ💲\n\n[[[ Tʀᴜsᴛᴇᴅ Eᴀʀɴɪɴɢ Sɪᴛᴇ - https://urlshortx.com/ref/Spidynaik ]]]\n\nIғ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ Dᴏᴜʙᴛs, Fᴇᴇʟ Fʀᴇᴇ ᴛᴏ Asᴋ ᴍᴇ - @Mr_Mohammed_29</b>")
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         grpid = message.chat.id
         title = message.chat.title
