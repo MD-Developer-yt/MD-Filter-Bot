@@ -1,0 +1,70 @@
+# ------------------------- #
+# Don't Remove Credit 
+# Ask Doubt @AU_Bot_Discussion 
+# Owner @Mr_Mohammed_29 
+# ------------------------- #
+import re
+import logging
+from pyrogram import Client, filters
+from info import DELETE_CHANNELS
+from database.ia_filterdb import Media, unpack_new_file_id
+
+# ------------------------- #
+# Don't Remove Credit 
+# Ask Doubt @AU_Bot_Discussion 
+# Owner @Mr_Mohammed_29 
+# ------------------------- #
+
+logger = logging.getLogger(__name__)
+
+media_filter = filters.document | filters.video | filters.audio
+
+# ------------------------- #
+# Don't Remove Credit 
+# Ask Doubt @AU_Bot_Discussion 
+# Owner @Mr_Mohammed_29 
+# ------------------------- #
+
+@Client.on_message(filters.chat(DELETE_CHANNELS) & media_filter)
+async def deletemultiplemedia(bot, message):
+    """Dᴇʟᴇᴛᴇ Mᴜʟᴛɪᴘʟᴇ ғɪʟᴇs ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ"""
+
+    for file_type in ("document", "video", "audio"):
+        media = getattr(message, file_type, None)
+        if media is not None:
+            break
+    else:
+        return
+
+    file_id, file_ref = unpack_new_file_id(media.file_id)
+
+    result = await Media.collection.delete_one({
+        '_id': file_id,
+    })
+    if result.deleted_count:
+        logger.info('Fɪʟᴇ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ.')
+    else:
+        file_name = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
+        result = await Media.collection.delete_many({
+            'file_name': file_name,
+            'file_size': media.file_size,
+            'mime_type': media.mime_type
+            })
+        if result.deleted_count:
+            logger.info('Fɪʟᴇ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ.')
+        else:
+            result = await Media.collection.delete_many({
+                'file_name': media.file_name,
+                'file_size': media.file_size,
+                'mime_type': media.mime_type
+            })
+            if result.deleted_count:
+                logger.info('Fɪʟᴇ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ.')
+            else:
+                logger.info('Fɪʟᴇ ɴᴏᴛ ғᴏᴜɴᴅ ɪɴ ᴅᴀᴛᴀʙᴀsᴇ.')
+
+# ------------------------- #
+# Don't Remove Credit 
+# Ask Doubt @AU_Bot_Discussion 
+# Owner @Mr_Mohammed_29 
+# ------------------------- #
